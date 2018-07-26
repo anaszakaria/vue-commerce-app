@@ -1,7 +1,7 @@
 <template>
     <div id="products">
         <h1>Products</h1>
-        <section id="pagenumber">
+        <section class="pagenumber">
             <ul>
                 <li v-for="(index, item) in totalPage" v-bind:class="{ active:selected == index }" @click="gotoPage(index)">Page {{ index }}</li>
             </ul>
@@ -14,6 +14,13 @@
                 <option>100</option>
             </select>
         </section>
+        <pg-pagination
+        v-bind:totalPage="totalPage"
+        v-bind:selected="selected"
+        v-bind:resultPerPage="resultPerPage"
+        v-on:resetPage="resetPage(0)"
+        v-on:gotoPage="gotoPage"
+        ></pg-pagination>
         <section id="productsLists">
             <div v-for="item in filteredProducts" v-bind:key="filteredProducts.price" class="item">
                 <div>
@@ -31,9 +38,13 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import PagePagination from '@/src/components/Shared/PagePagination.vue'
 
 export default {
     name: 'Products',
+    components: {
+        'pg-pagination': PagePagination
+    },
     props: ['pg'],
     data () {
         return {
@@ -50,6 +61,7 @@ export default {
             this.startArrayPos = (page - 1) * parseInt(this.resultPerPage)
         },
         resetPage(page) {
+            console.log('parent')
             this.$router.push({ path: '/products/1', query: { pageItem: this.resultPerPage } })
             this.selected = 1
             this.startArrayPos = page
