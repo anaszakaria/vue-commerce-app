@@ -4,7 +4,7 @@
             <li v-for="(index, item) in totalPage" v-bind:class="{ active:selected == index }" @click="gotoPage(index)">Page {{ index }}</li>
         </ul>
         <label>Items per page:</label>
-        <select v-model="resultPerPage" @change="resetPage(0)">
+        <select v-model="resultPerPage" @change="resetPage">
             <option disabled value="">Result Per Page</option>
             <option>10</option>
             <option>15</option>
@@ -17,16 +17,16 @@
 <script>
 export default {
     name: 'PagePagination',
-    props: ['totalPage', 'selected', 'resultPerPage'],
+    props: ['totalPage', 'selected'],
     data () {
         return {
-
+            resultPerPage: 10
         }
     },
     methods: {
-        resetPage(page) {
+        resetPage() {
             console.log('emit')
-            this.$emit('resetPage', page)
+            this.$emit('resetPage', this.resultPerPage)
         },
         gotoPage(index) {
             this.$emit('gotoPage', index)
