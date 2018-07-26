@@ -1,0 +1,24 @@
+#admin-page{
+    @include elemPadding(12px);
+}
+
+#admin-menu {
+    width: 300px;
+    li {
+        cursor: pointer;
+        background: $accent;
+        color: $offWhite;
+        a {
+            display: block;
+            width: 100%;
+            @include elemPadding(8px)
+        }
+        &:hover {
+            background: complement($accent);
+        }
+    }
+}
+
+#add-product, #update-product, #delete-product {
+    @include elemPadding(12px);
+}

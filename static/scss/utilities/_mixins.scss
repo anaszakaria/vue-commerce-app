@@ -1,0 +1,90 @@
+// Clearfix
+@mixin clearFix {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+// Font Face in e.g Font Awesome
+@mixin fontFace($name, $file) {
+    @font-face {
+        font-family: "#{$name}";
+        src: url("~fonts/#{$file}.eot");
+        src: url("~fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+        url("~fonts/#{$file}.woff") format("woff"),
+        url("~fonts/#{$file}.ttf") format("truetype"),
+        url("~fonts/#{$file}.svg?#webfont") format("svg");
+    }
+}
+
+// Background bg-image
+@mixin bgImage($width, $bg-url, $bg-size, $bg-repeat) {
+    width: $width;
+    background-image: url($bg-url);
+    background-size: $bg-size;
+    background-repeat: $bg-repeat;
+}
+
+// Media queries
+@mixin screen($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    } @else {
+        @warn 'Key not found';
+    }
+}
+
+// Positioning
+@mixin position($position, $args) {
+    @each $o in top right bottom left {
+        $i: index($args, $o);
+        @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+            #{$o}: nth($args, $i + 1);
+        }
+    }
+    position: $position;
+}
+
+@mixin absolute($args: '') {
+    @include position(absolute, $args);
+}
+
+@mixin fixed($args: '') {
+    @include position(fixed, $args);
+}
+
+@mixin relative($args: '') {
+    @include position(relative, $args);
+}
+
+// All element padding
+@mixin elemPadding($size: 8px) {
+    padding: $size;
+}
+
+// Padding
+@mixin padding($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    padding: $top $right $bottom $left;
+}
+
+// Margin
+@mixin margin($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    margin: $top $right $bottom $left;
+}
+
+// Element: DIV
+@mixin box($width: 100%, $height: auto, $padding: 0, $margin: 0, $overflow: hidden) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    margin: $margin;
+    overflow: $overflow;
+}

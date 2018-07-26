@@ -1,0 +1,33 @@
+#cart {
+    @include elemPadding(12px);
+    .item-counter {
+        @extend %item-counter;
+        border-right: 5px solid blue;
+    }
+}
+
+#cart > section {
+    overflow: auto;
+}
+
+#added-cart {
+    float: left;
+    width: 70%;
+}
+
+#cart-summary {
+    padding: 16px 0 16px 16px;
+    float: left;
+    width: 30%
+}
+
+.cart-list {
+    background: #FFF;
+    li {
+        text-align: center;
+        width: (100% / 5);
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: -4px;
+    }
+}

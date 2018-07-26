@@ -1,0 +1,12 @@
+#futsal-shoes {
+    @include elemPadding(12px);
+    img {
+        margin-top: 8px;
+        max-width: 700px;
+        width: 100%;
+    }
+    .item-counter {
+        @extend %item-counter;
+        border-right: 5px solid green;
+    }
+}

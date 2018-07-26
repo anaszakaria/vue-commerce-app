@@ -1,0 +1,31 @@
+// counter components
+%item-counter {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin: 8px 0;
+    > div {
+        border: 1px solid #CCC;
+        width: (100% / 3);
+        height: 100%;
+        margin-left: -4px;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+}
+
+// button default
+%btn-base {
+    border: none;
+    box-shadow: 1px 1px 6px $darkgrey;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    @extend %ease-out;
+}
+
+//transition default
+%ease-out {
+    transition: all 0.3s ease-out;
+}

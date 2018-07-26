@@ -1,0 +1,27 @@
+input[type=text], input[type=email], input[type=password], select {
+    width: 200px;
+    padding: 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    opacity: 0.5;
+    background-color: #000;
+    color: white;
+    padding:10px 20px;
+    margin: 8px;
+    border: none;
+    cursor: auto;
+    &.active {
+        opacity: 1;
+        cursor: pointer;
+        background-color: #4CAF50;
+    }
+}
+
+label {
+    margin: 0 4px 0 12px;
+}

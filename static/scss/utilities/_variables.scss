@@ -1,0 +1,41 @@
+// COLORS
+$offWhite: #F8F9FB;
+$offGrey: #F2F2F2;
+$lightgrey: #CCC;
+$darkgrey: #1a1a1a;
+$purple: #8e24aa;
+$lightblue: #4d91ff;
+$darkblue: #000066;
+$red: #FF5252;
+$green: #4CAF50;
+$yellow: #FFC107;
+
+// FONTS
+$font-main: 'Avenir', Helvetica, Arial, sans-serif;
+$font-color-main: $darkgrey;
+$font-color-second: $offWhite;
+
+// BG-COLOR
+$body-background: $offGrey;
+$color-bg: $offGrey;
+$primary: $purple;
+$secondary: $darkgrey;
+$default: $lightgrey;
+$success: $green;
+$warning: $yellow;
+$info: $lightblue;
+$error: $red;
+$accent: $lightblue;
+
+// MEDIA QUERIES BREAKPOINTS
+$breakpoints: (
+"crazy":        100px,
+"phone":        240px,
+"phone-wide":   480px,
+"phablet":      560px,
+"tablet-small": 640px,
+"tablet":       768px,
+"tablet-wide":  1024px,
+"desktop":      1248px,
+"desktop-wide": 1440px
+);

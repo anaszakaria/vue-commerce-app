@@ -1,0 +1,6 @@
+#modal {
+    @include fixed(bottom 12px right 12px);
+    padding: 12px;
+    background: $primary;
+    color: $font-color-second;
+}

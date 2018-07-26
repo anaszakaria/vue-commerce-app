@@ -1,0 +1,10 @@
+#test-page {
+    @include elemPadding(12px);
+}
+
+.boxes {
+    background: #CCC;
+    float: left;
+    border: 1px solid #000;
+    @include box(200px, null, 12px, null, null);
+}

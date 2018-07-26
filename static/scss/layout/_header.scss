@@ -1,0 +1,25 @@
+#main-header {
+    background: $primary;
+    color: $font-color-second;
+    padding: 12px;
+    @include bgImage(100%, '~img/layout/bg-header.jpg', 100%, no-repeat);
+}
+
+#main-header nav ul {
+    @include clearFix;
+    li {
+        float: left;
+        padding: 4px 8px;
+        margin: 0 2px;
+        background: $accent;
+        box-shadow: 1px 1px 6px $darkgrey;
+        @extend %ease-out;
+        &:hover {
+            background: complement($accent);
+        }
+    }
+}
+
+#main-header #logout {
+    @include absolute(top 12px right 12px);
+}

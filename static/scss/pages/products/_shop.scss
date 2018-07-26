@@ -1,0 +1,61 @@
+#products, #productlists, #pagenumber {
+    overflow: auto;
+}
+
+#products {
+    @include elemPadding(12px);
+    li.active {
+        background: $accent;
+        color: #FFF;
+    }
+}
+
+#products .item {
+    padding: 4px;
+    margin: 12px 0 0 0;
+    color: $font-color-second;
+    display: inline-block;
+    vertical-align: top;
+    > div {
+        padding: 8px;
+        background: $darkblue;
+    }
+    @include screen('crazy') {
+        font-size: 0.7rem;
+        width: 100%;
+    }
+    @include screen('phone') {
+        font-size: 0.75rem;
+        width: 50%;
+    }
+    @include screen('phone-wide') {
+        font-size: 0.8rem;
+        width: 33.3333%;
+    }
+    @include screen('tablet') {
+        font-size: 0.85rem;
+        width: 25%;
+    }
+    @include screen('tablet-wide') {
+        font-size: 1rem;
+        width: 20%;
+    }
+}
+
+#products #pagenumber li {
+    display: inline-block;
+    padding: 4px;
+    cursor: pointer;
+    @extend %ease-out;
+    &:not(:last-child) {
+        border-right: 1px solid $darkblue;
+    }
+    &:hover {
+        background: $accent;
+        color: #FFF;
+    }
+    .active {
+        background: $accent;
+        color: #FFF;
+    }
+}
