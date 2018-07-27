@@ -5,13 +5,13 @@
         <h3 v-if="userIsAuthenticated">Logged in as {{ getUserInfo().email }}</h3>
         <nav>
             <ul v-if="userIsAuthenticated">
-                <li><router-link v-bind:to="{ path: '/products/1?pageItem=10'}">Products</router-link></li>
+                <li><router-link v-bind:to="{ path: '/products/1?pageItem=10'}" @click.native="reloadProductPage">Products</router-link></li>
                 <li><router-link v-bind:to="{ path: '/cart'}">Shopping Cart</router-link></li>
                 <li><router-link v-bind:to="{ path: '/profile'}">User Profile</router-link></li>
                 <li><router-link v-bind:to="{ path: '/admin'}">Admin</router-link></li>
             </ul>
             <ul v-else>
-                <li><router-link v-bind:to="{ path: '/products/1?pageItem=10'}">Products</router-link></li>
+                <li><router-link v-bind:to="{ path: '/products/1?pageItem=10'}" @click.native="reloadProductPage">Products</router-link></li>
                 <li><router-link v-bind:to="{ path: '/cart'}">Shopping Cart</router-link></li>
                 <li><router-link v-bind:to="{ path: '/signup'}">Sign Up</router-link></li>
                 <li><router-link v-bind:to="{ path: '/signin'}">Sign In</router-link></li>
@@ -23,6 +23,7 @@
 
 <script>
 import moment from 'moment'
+import { bus } from '@/src/main.js'
 
 export default {
     name: 'Header',
@@ -37,6 +38,10 @@ export default {
         },
         signOut() {
             this.$store.dispatch('signOut')
+        },
+        reloadProductPage() {
+            bus.$emit('gotoPage', 1)
+            bus.$emit('resetPerPageResult')
         }
     },
     computed: {
