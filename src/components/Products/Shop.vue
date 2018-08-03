@@ -1,19 +1,10 @@
 <template>
     <div id="products">
         <h1>Products</h1>
-        <section id="pagenumber">
-            <ul>
-                <li v-for="(index, item) in totalPage" v-bind:class="{ active:selected == index }" @click="gotoPage(index)">Page {{ index }}</li>
-            </ul>
-            <label>Items per page:</label>
-            <select v-model="resultPerPage" @change="resetPage(0)">
-                <option disabled value="">Result Per Page</option>
-                <option>10</option>
-                <option>15</option>
-                <option>20</option>
-                <option>100</option>
-            </select>
-        </section>
+        <pg-pagination
+        v-bind:totalPage="totalPage"
+        v-bind:resultPerPage="resultPerPage"
+        ></pg-pagination>
         <section id="productsLists">
             <div v-for="item in filteredProducts" v-bind:key="filteredProducts.price" class="item">
                 <div>
@@ -30,34 +21,24 @@
 <script>
 import Vue from 'vue'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
 
 export default {
     name: 'Products',
     props: ['pg'],
     data () {
         return {
-            selected: 1,
             products: [],
             startArrayPos: 0,
-            resultPerPage: 10
+            resultPerPage: this.$route.query.pageItem
         }
     },
     methods: {
-        gotoPage(page) {
-            this.$router.push({ path: '/products/' + page, query: { pageItem: this.resultPerPage } })
-            this.selected = page
-            this.startArrayPos = (page - 1) * parseInt(this.resultPerPage)
-        },
-        resetPage(page) {
-            this.$router.push({ path: '/products/1', query: { pageItem: this.resultPerPage } })
-            this.selected = 1
-            this.startArrayPos = page
+        print() {
+            console.log(print)
         }
     },
     computed: {
         filteredProducts() {
-            this.selected = parseInt(this.pg)
             this.resultPerPage = this.$route.query.pageItem
             const resultPerPage = parseInt(this.$route.query.pageItem)
             let startArray
@@ -71,6 +52,11 @@ export default {
         },
         totalPage() {
             return(Math.ceil(this.products.length / this.resultPerPage))
+        }
+    },
+    watch: {
+        '$route'(to, from) {
+            // do something
         }
     },
     created() {

@@ -5,16 +5,21 @@ import { store } from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-// import shared components
-import Modal from './components/Shared/Modal.vue'
-
 Vue.config.productionTip = false
 
-// register middleware
-Vue.use(VueAxios, axios)
+// create event bus
+export const bus = new Vue()
+
+// import shared components
+import Modal from './components/Shared/Modal.vue'
+import PagePagination from './components/Shared/PagePagination.vue'
 
 // register global component
 Vue.component('app-modal', Modal)
+Vue.component('pg-pagination', PagePagination)
+
+// register middleware
+Vue.use(VueAxios, axios)
 
 // global filters
 import Snippet from './filters/snippet'
