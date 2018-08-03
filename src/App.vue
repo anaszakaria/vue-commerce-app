@@ -1,8 +1,10 @@
 <template>
     <div id="app">
-        <app-header></app-header>
+        <app-header v-if="mainHeader"></app-header>
         <main>
-            <router-view></router-view>
+            <transition name="slide">
+                <router-view></router-view>
+            </transition>
         </main>
     </div>
 </template>
@@ -13,6 +15,11 @@ import moment from 'moment'
 
 export default {
     name: 'App',
+    data() {
+        return {
+            mainHeader: true
+        }
+    },
     components: {
         'app-header': Header
     }
@@ -21,4 +28,21 @@ export default {
 
 <style lang="scss">
 @import "~scss/main";
+
+.slide-enter-active {
+    transition: all .3s;
+}
+
+.slide-enter {
+    margin-top: 50px;
+    opacity: 0;
+}
+
+.slide-leave-active {
+    display: none;
+}
+
+.slide-leave-to {
+    display: none;
+}
 </style>

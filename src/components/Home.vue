@@ -1,7 +1,7 @@
 <template>
     <div id="home">
         <header>
-            <h1>{{ memberList }}</h1>
+            <h1>{{ title }}</h1>
             <router-link v-if="userIsAuthenticated" v-bind:to="{ path: '/addlist'}"><button>Add List</button></router-link>
         </header>
         <div class="listBox" v-for="list in sortedList" :key="sortedList._id">
@@ -20,7 +20,7 @@ export default {
     name: 'Home',
     data () {
         return {
-            memberList: 'Member List'
+            title: 'Landing Page'
         }
     },
     computed: {
