@@ -32,11 +32,6 @@ export default {
             resultPerPage: this.$route.query.pageItem
         }
     },
-    methods: {
-        print() {
-            console.log(print)
-        }
-    },
     computed: {
         filteredProducts() {
             this.resultPerPage = this.$route.query.pageItem

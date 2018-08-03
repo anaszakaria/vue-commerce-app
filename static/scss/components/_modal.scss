@@ -1,6 +1,24 @@
 #modal {
     @include fixed(bottom 12px right 12px);
-    padding: 12px;
     background: $primary;
     color: $font-color-second;
+    box-shadow: 1px 1px 6px #1a1a1a;
+    header {
+        padding: 12px;
+        margin-bottom: 12px;
+        background: $info;
+        text-align: center;
+    }
+    #modal-msg {
+        padding: 12px;
+    }
+    #disclaimer {
+        padding: 8px 12px;
+        background: $error;
+    }
+    footer {
+        padding: 12px;
+        background: $warning;
+        text-align: center;
+    }
 }

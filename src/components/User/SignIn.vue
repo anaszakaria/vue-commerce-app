@@ -8,6 +8,11 @@
             <input type="password" id="password" v-model="password" name="password" placeholder="*****">
             <input type="submit" value="Submit" v-bind:class="{ active:formIsValid }" v-bind:disabled="!formIsValid">
         </form>
+        <app-modal>
+            <footer slot="modalfooter">
+                <h4>Footer for Sign In</h4>
+            </footer>
+        </app-modal>
     </div>
 </template>
 

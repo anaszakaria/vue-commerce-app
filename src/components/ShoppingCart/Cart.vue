@@ -27,8 +27,19 @@
         </section>
         <section>
             <button @click="removeItems">Remove All</button>
-            <app-modal></app-modal>
         </section>
+        <app-modal>
+            <header slot="modalheader">
+                <h4>{{ modalheaderInfo }}</h4>
+            </header>
+            <div id="disclaimer">
+                <p><b>Disclaimer:</b></p>
+                <p>Default for unnnamed slot</p>
+            </div>
+            <footer slot="modalfooter">
+                <h4>{{ modalfooterInfo }}</h4>
+            </footer>
+        </app-modal>
     </div>
 </template>
 
@@ -40,6 +51,8 @@ export default {
     name: 'Cart',
     data () {
         return {
+            modalheaderInfo: 'Display Slot Header',
+            modalfooterInfo: 'Display Slot Footer',
             amountOrdered: []
         }
     },
