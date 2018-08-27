@@ -17,7 +17,7 @@ export const store = new Vuex.Store({
         auth: {
             token: null
         },
-        ip: '192.168.2.232'
+        ip: 'localhost'
     },
     mutations: {
         setLoadedLists(state, payload) {

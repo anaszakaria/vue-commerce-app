@@ -12,11 +12,9 @@ export const bus = new Vue()
 
 // import shared components
 import Modal from './components/Shared/Modal.vue'
-import PagePagination from './components/Shared/PagePagination.vue'
 
 // register global component
 Vue.component('app-modal', Modal)
-Vue.component('pg-pagination', PagePagination)
 
 // register middleware
 Vue.use(VueAxios, axios)

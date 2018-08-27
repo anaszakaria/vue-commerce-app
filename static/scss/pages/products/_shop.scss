@@ -1,4 +1,4 @@
-#products, #productlists, .pagenumber {
+#products, #productlists, #pagenumber {
     overflow: auto;
 }
 
@@ -42,7 +42,7 @@
     }
 }
 
-#products .pagenumber li {
+#products #pagenumber li {
     display: inline-block;
     padding: 4px;
     cursor: pointer;
