@@ -76,6 +76,7 @@ export default {
     created() {
         Vue.axios.get(`http://${this.$store.getters.ip}:3000/products`)
         .then((response) => {
+            console.log('asdfasfas');
             this.products = response.data
         })
         .catch(error => {
